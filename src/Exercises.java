@@ -21,7 +21,7 @@ public class Exercises {
 
 		int size = n * 2;
 
-		ArrayList endsOnly = new ArrayList(size);
+		ArrayList<String> endsOnly = new ArrayList<String>(size);
 
 		for (int i = 0; i < n; i++) {
 			endsOnly.set(i, values.get(i));

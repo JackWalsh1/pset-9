@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Exercises {
 
-	public boolean commonEnd(ArrayList<Integer> a, ArrayList<Integer> b) {
+	public boolean commonEnd(ArrayList<Integer> a, ArrayList<Integer> b) { //SOLVED
 		if (a == null || a.isEmpty() || b == null || b.isEmpty()) {
 			return false;
 		}
@@ -15,27 +15,26 @@ public class Exercises {
 	}
 	
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
-		if (values.isEmpty() || values.size() < n || n < 0) {
-			return null;
+
+		if (values == null || values.size() < n || n < 0) {
+			return new ArrayList<String>();
 		}
 
-		int size = n * 2;
-
-		ArrayList<String> endsOnly = new ArrayList<String>(size);
+		ArrayList<String> endsOnly = new ArrayList<String>();
 
 		for (int i = 0; i < n; i++) {
-			endsOnly.set(i, values.get(i));
+			endsOnly.add(values.get(i));
 		}
 
 		for (int i = 0; i < n; i++) {
-			endsOnly.set(i, values.get(values.size() - 1));
+			endsOnly.add(values.get(values.size() - n + i));
 		}
 
 		if (endsOnly.size() != 0) {
 			return endsOnly;
 		}
 		
-		return null;	// default return value to ensure compilation
+		return new ArrayList<String>();	// default return value to ensure compilation
 	}
 	
 	public int difference(ArrayList<Integer> numbers) {

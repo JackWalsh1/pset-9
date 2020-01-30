@@ -7,13 +7,33 @@ public class Exercises {
 			return false;
 		}
 		
-		// write your code here
-		
-		return false;	// default return value to ensure compilation
+		if (a.get(0) == b.get(0) || a.get(a.size() - 1) == b.get(b.size() - 1)) {
+			return true;
+		}
+	
+		return false;
 	}
 	
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
-		// write your code here
+		if (values.isEmpty() || values.size() < n || n < 0) {
+			return null;
+		}
+
+		int size = n * 2;
+
+		ArrayList endsOnly = new ArrayList(size);
+
+		for (int i = 0; i < n; i++) {
+			endsOnly.set(i, values.get(i));
+		}
+
+		for (int i = 0; i < n; i++) {
+			endsOnly.set(i, values.get(values.size() - 1));
+		}
+
+		if (endsOnly.size() != 0) {
+			return endsOnly;
+		}
 		
 		return null;	// default return value to ensure compilation
 	}

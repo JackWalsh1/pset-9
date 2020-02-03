@@ -45,11 +45,12 @@ public class Exercises {
 		int smallestValue = Integer.MAX_VALUE;
 		int largestValue = Integer.MIN_VALUE;
 
-		for (int i = 0; i < numbers.size(); i++) {
-			if (numbers.get(i) < smallestValue) {
-				smallestValue = numbers.get(i);
-			} else if (numbers.get(i) > largestValue) {
-				largestValue = numbers.get(i);
+		for (int number : numbers) {
+			if (number < smallestValue) {
+				smallestValue = number;
+			} 
+			if (number > largestValue) {
+				largestValue = number;
 			}
 		}
 
@@ -59,11 +60,36 @@ public class Exercises {
 
 		return -1;		// default return value to ensure compilation
 	}
-	
+
+
 	public double biggest(ArrayList<Double> numbers) {
-		// write your code here
-		
-		return -1;		// default return value to ensure compilation
+		if (numbers == null || numbers.size() < 3 || numbers.size() % 2 == 0) {
+			return -1;
+		} else {
+			for (int i = 0; i < numbers.size(); i++) {
+				if (numbers.get(i) < 0) {
+					return -1;
+				}
+			}
+		}
+
+		double firstNumber = numbers.get(0);
+		double middleNumber = numbers.get((numbers.size() - 1) / 2);
+		double lastNumber = numbers.get(numbers.size() - 1);
+
+		if (firstNumber >= middleNumber) {
+			if (firstNumber >= lastNumber) {
+				return firstNumber;
+			} else  {
+				return lastNumber;
+			}
+		} else {
+			if (middleNumber >= lastNumber) {
+				return firstNumber;
+			} else  {
+				return lastNumber;
+			}
+		}
 	}
 	
 	public ArrayList<String> middle(ArrayList<String> values) {

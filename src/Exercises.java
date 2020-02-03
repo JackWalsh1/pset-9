@@ -93,9 +93,24 @@ public class Exercises {
 	}
 	
 	public ArrayList<String> middle(ArrayList<String> values) {
-		// write your code here
+		if (values == null || values.size() < 3 || values.size() % 2 == 0) {
+			return new ArrayList<String>();
+		} else {
+			for (int i = 0; i < values.size(); i++) {
+				if (values.get(i) == null) {
+					return new ArrayList<String>();
+				}
+			}
+		}
+
+		ArrayList<String> middleElements = new ArrayList<String>();
+				
+		for (int i = -1; i < 2; i++) {
+			middleElements.add(values.get(values.size()/2 + i));
+		}
 		
-		return null;	// default return value to ensure compilation
+		return middleElements;
+
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {

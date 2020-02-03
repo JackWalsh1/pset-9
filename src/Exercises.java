@@ -114,7 +114,18 @@ public class Exercises {
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
-		// write your code here
+		if (numbers == null || numbers.size() < 3) {
+			return false;
+		}
+
+		for (int i = 0; i < numbers.size() - 2; i++) {
+			int firstNumber = numbers.get(i);
+			int secondNumber = numbers.get(i + 1);
+			int thirdNumber = numbers.get(i + 2);
+			if (secondNumber - firstNumber == thirdNumber - secondNumber && firstNumber < secondNumber) {
+				return true;
+			}
+		}
 		
 		return false;	// default return value to ensure compilation
 	}

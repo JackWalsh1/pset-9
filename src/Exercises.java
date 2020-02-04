@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.print.attribute.standard.NumberOfInterveningJobs;
+
 public class Exercises {
 
 	public boolean commonEnd(ArrayList<Integer> a, ArrayList<Integer> b) { //SOLVED
@@ -163,8 +165,27 @@ public class Exercises {
 	}
 	
 	public boolean balance(ArrayList<Integer> numbers) {
-		// write your code here
-		
+		if (numbers == null || numbers.size() < 2) {
+			return false;
+		}
+	
+		for (int h = 0; h < numbers.size() - 1; h++) {
+			int leftHalf = 0;
+			int rightHalf = 0;
+
+			for (int i = h; i >= 0; i--) {								
+				leftHalf += numbers.get(i);
+			}
+
+			for (int i = h + 1; i < numbers.size(); i++) {								
+				rightHalf += numbers.get(i);
+			} 
+
+			if (leftHalf == rightHalf) {
+				return true;
+			}
+		}
+			
 		return false;	// default return value to ensure compilation
 	}
 	
